@@ -3,6 +3,7 @@ let timer;
 export function fecharMenu() {
   document.querySelector(".menu-navegacao").classList.remove("ativo");
   document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
+  document.querySelector(".menu-toggle").setAttribute("aria-label", "Abrir menu");
 }
 export function abrirModal() {
   focoAnterior = document.activeElement;
@@ -15,6 +16,7 @@ export function abrirModal() {
   document.body.style.overflow = "hidden";
   modal.querySelector("button").focus();
   const toast = document.querySelector("#toast-sucesso");
+  toast.lastElementChild.textContent = "Histórico salvo neste navegador.";
   toast.classList.add("visivel");
   clearTimeout(timer);
   timer = setTimeout(() => toast.classList.remove("visivel"), 3500);
@@ -38,6 +40,7 @@ export function iniciarComponentes() {
       document
         .querySelector(".menu-toggle")
         .setAttribute("aria-expanded", String(aberto));
+      document.querySelector(".menu-toggle").setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
     }
     if (
       e.target.closest("[data-fechar-modal]") ||
@@ -52,7 +55,11 @@ export function iniciarComponentes() {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       fecharModal();
-      fecharMenu();
+      const menu = document.querySelector(".menu-navegacao");
+      if (menu.classList.contains("ativo")) {
+        fecharMenu();
+        document.querySelector(".menu-toggle").focus();
+      }
     }
     const modal = document.querySelector("#modal-confirmacao");
     if (e.key !== "Tab" || !modal.classList.contains("aberto")) return;
