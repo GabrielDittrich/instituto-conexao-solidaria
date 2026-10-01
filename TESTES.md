@@ -32,3 +32,24 @@ A auditoria completa WCAG AA, otimização e publicação pertencem à próxima 
 12. Após um envio, volte a digitar nos campos mascarados; navegue para outra rota e retorne. Confira a reinicialização do IMask.
 
 Verificação adicional em Node: modelos reais do IMask para CPF, CEP, telefone fixo e celular passaram. A integração de digitação no navegador continua pendente.
+
+## Testes manuais da versão de produção — 01/10/2026
+
+**Responsável:** Gabriel Dittrich Cardoso João  
+**Navegador:** Brave 1.93.134  
+**Ambiente:** versão de produção em `dist/`, executada pelo Live Server.  
+**Responsividade:** verificada pela simulação de dispositivos do navegador.
+
+| Teste | Resultado |
+| --- | --- |
+| Navegação entre Início, Projetos e Cadastro, incluindo voltar e avançar | Aprovado |
+| Envio do formulário vazio, mensagens de erro e foco no primeiro campo inválido | Aprovado |
+| Máscaras de CPF, telefone e CEP, inclusive após trocar de página | Aprovado |
+| Cadastro com dados fictícios, abertura do modal e limpeza do formulário | Aprovado |
+| Permanência do histórico após atualizar a página | Aprovado |
+| Limpeza do histórico | Aprovado |
+| Navegação por teclado, foco visível, menu, modal e fechamento por Escape | Aprovado |
+| Tela pequena simulada e zoom de 200%, sem cortes que impeçam o uso | Aprovado |
+| Console e Network sem erros de JavaScript ou arquivos com erro 404 | Aprovado |
+
+Todos os testes acima passaram conforme a execução manual do responsável. Não foram realizados testes em celular físico, com leitor de tela ou uma auditoria completa de conformidade WCAG 2.1 AA.
