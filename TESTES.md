@@ -68,3 +68,26 @@ Foram verificados no site publicado:
 - Console e Network, sem erros de JavaScript ou arquivos com status 404.
 
 Todos os testes acima passaram conforme a execução manual do responsável.
+
+## Verificações complementares — Atividade IV
+
+Os relatórios Lighthouse das telas Início e Cadastro foram
+executados com simulação de dispositivo móvel.
+
+| Categoria | Início | Cadastro |
+|-----------|--------|----------|
+| Performance | 100 | 100 |
+| Accessibility | 100 | 100 |
+| Best Practices | 100 | 100 |
+| SEO | 100 | 100 |
+
+Os testes manuais de navegação, formulário, máscaras, histórico,
+modal, teclado e responsividade passaram no Brave 1.93.134,
+conforme os resultados registrados anteriormente.
+
+Foi tentado um teste com o leitor de tela Orca, mas a ausência
+de saída de áudio impediu a verificação das mensagens dinâmicas.
+Esse teste permanece pendente.
+
+Os resultados do Lighthouse e dos testes realizados não
+comprovam conformidade integral com WCAG 2.1 nível AA.
