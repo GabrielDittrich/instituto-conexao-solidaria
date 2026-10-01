@@ -13,7 +13,7 @@
 
 Não foi possível executar o navegador automatizado: o Chromium não estava instalado e o download disponível retornou um arquivo inválido. Os testes acima não comprovam o comportamento visual ou a navegação completa por teclado.
 
-## Roteiro manual antes de continuar para a Atividade IV
+## Roteiro manual da base — Atividade III.
 
 1. Abra index.html pelo Live Server e navegue entre Início, Projetos e Participe. Confira título e item ativo do menu. Teste voltar/avançar e recarregar em #cadastro.
 2. Acesse #rota-inexistente e confira o retorno para Início.
@@ -30,8 +30,6 @@ A auditoria completa WCAG AA, otimização e publicação pertencem à próxima 
 
 11. Confira que os dois avisos laterais possuem altura conforme o texto e que nenhum campo vazio aparece vermelho antes da interação.
 12. Após um envio, volte a digitar nos campos mascarados; navegue para outra rota e retorne. Confira a reinicialização do IMask.
-
-Verificação adicional em Node: modelos reais do IMask para CPF, CEP, telefone fixo e celular passaram. A integração de digitação no navegador continua pendente.
 
 ## Testes manuais da versão de produção — 01/10/2026
 
