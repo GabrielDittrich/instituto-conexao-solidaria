@@ -32,14 +32,33 @@ IMask permanece separado, já minificado (89.066 bytes). As variantes são escol
 - Referências locais do HTML de produção e imagens dos templates conferidas.
 - Dimensões dos JPEGs verificadas (480×270, 800×450 e 1200×675).
 
-## Verificações pendentes no navegador
+## Verificações realizadas no navegador
 
-- Abrir `dist/index.html` via servidor HTTP e conferir as três rotas.
-- Testar CPF, telefone e CEP, incluindo navegação de ida e volta para cadastro.
-- Testar envio inválido/válido, histórico, limpeza e modal.
-- Conferir Console e Network para erros/404 e arquivos efetivamente carregados.
-- Conferir celular, teclado, foco e zoom; comparar com a versão fonte.
-- Medir desempenho com Lighthouse, registrando navegador, condições e resultados reais.
+Testes realizados no Brave 1.93.134, com a versão de produção
+da pasta dist servida por HTTP:
+
+- Navegação pelas três rotas: passou.
+- Máscaras de CPF, telefone e CEP, inclusive após sair e
+  retornar ao cadastro: passaram.
+- Envio inválido e válido, histórico, limpeza e modal: passaram.
+- Console e Network: sem erros de JavaScript ou arquivos com 404.
+- Responsividade por simulação de dispositivo móvel,
+  navegação por teclado, foco visível e zoom de 200%: passaram.
+
+### Lighthouse na aplicação publicada
+
+Avaliação realizada em 01/10/2026, com simulação de dispositivo
+móvel.
+
+| Categoria | Início | Cadastro |
+|-----------|--------|----------|
+| Performance | 100 | 100 |
+| Accessibility | 100 | 100 |
+| Best Practices | 100 | 100 |
+| SEO | 100 | 100 |
+
+Os resultados correspondem às condições dessa execução.
+A avaliação móvel utilizou simulação no navegador.
 
 Na etapa inicial de otimização não foram executados testes de interface nem Lighthouse. Posteriormente, os testes manuais de interface passaram no Brave 1.93.134, conforme `TESTES.md`; Lighthouse continua pendente. Não há pontuação de desempenho ou conformidade WCAG certificada.
 
