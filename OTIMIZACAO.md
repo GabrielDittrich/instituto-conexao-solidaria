@@ -41,10 +41,10 @@ IMask permanece separado, já minificado (89.066 bytes). As variantes são escol
 - Conferir celular, teclado, foco e zoom; comparar com a versão fonte.
 - Medir desempenho com Lighthouse, registrando navegador, condições e resultados reais.
 
-Não foram executados testes de interface nem Lighthouse nesta etapa. Não há pontuação de desempenho ou conformidade WCAG certificada.
+Na etapa inicial de otimização não foram executados testes de interface nem Lighthouse. Posteriormente, os testes manuais de interface passaram no Brave 1.93.134, conforme `TESTES.md`; Lighthouse continua pendente. Não há pontuação de desempenho ou conformidade WCAG certificada.
 
 ## Publicação
 
-Publicar o conteúdo de `dist/`. O GitHub Pages não oferece `dist` como pasta na opção simples de branch; na etapa de publicação, configurar GitHub Actions para enviar essa pasta. O build não realiza deploy nem cria a release.
+Publicar o conteúdo de `dist/`. O GitHub Pages não oferece `dist` como pasta na opção simples de branch; o workflow `.github/workflows/pages.yml` foi preparado para enviar essa pasta após o merge na `main` e a configuração do Pages. O build não realiza deploy nem cria a release.
 
 Referência do build: https://esbuild.github.io/api/

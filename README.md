@@ -6,7 +6,7 @@ O objetivo é aplicar HTML semântico, CSS responsivo e JavaScript para aproxima
 
 ## Estado do projeto
 
-A base funcional está implementada e recebeu melhorias de acessibilidade. O repositório utiliza branches e pull requests para organizar as alterações da Experiência Prática IV. A otimização de imagens e o build de produção estão implementados. Os testes finais e a publicação estão em andamento; a release `v1.0.0` ainda não foi concluída.
+A base funcional está implementada e recebeu melhorias de acessibilidade. O repositório utiliza branches e pull requests para organizar as alterações da Experiência Prática IV. A otimização de imagens e o build de produção estão implementados. Os testes manuais da distribuição passaram no Brave 1.93.134, conforme registro em `TESTES.md`. A versão `1.0.0` está em preparação; a publicação e a criação da release ainda precisam ser concluídas.
 
 **Aplicação publicada:** endereço a adicionar após configurar e validar o GitHub Pages.
 
@@ -180,7 +180,11 @@ A pasta `dist/` está versionada nesta etapa para facilitar a entrega e deve ser
 
 Estrutura acrescentada: `package.json`, `package-lock.json`, `scripts/build.mjs`, `.gitignore`, `OTIMIZACAO.md` e `dist/`.
 
-Consulte `OTIMIZACAO.md` para as medições e verificações desta etapa. A publicação está prevista no GitHub Pages e deverá ser validada no endereço público antes da conclusão da release. O processo de deploy de `dist/` será configurado na etapa de publicação.
+Consulte `OTIMIZACAO.md` para as medições e verificações desta etapa. A publicação está prevista no GitHub Pages e deverá ser validada no endereço público antes da conclusão da release. O workflow `.github/workflows/pages.yml` executa `npm ci` e `npm run build` nos PRs para `main` e `develop`. Publica `dist/` apenas em atualizações da `main` ou execução manual na `main`. Configure **Settings → Pages → Source → GitHub Actions** antes de integrar a release.
+
+Endereço previsto: https://gabrieldittrich.github.io/instituto-conexao-solidaria/ (publicação ainda não confirmada).
+
+O arquivo vazio `dist/.nojekyll` é gerado automaticamente para indicar distribuição estática sem Jekyll; o workflow já publica o artefato estático diretamente.
 
 ## Autoria e licenças
 
