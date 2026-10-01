@@ -6,9 +6,9 @@ O objetivo é aplicar HTML semântico, CSS responsivo e JavaScript para aproxima
 
 ## Estado do projeto
 
-A base funcional está implementada e recebeu melhorias de acessibilidade. O repositório utiliza branches e pull requests para organizar as alterações da Experiência Prática IV. A otimização de imagens e o build de produção estão implementados. Os testes manuais da distribuição passaram no Brave 1.93.134, conforme registro em `TESTES.md`. A versão `1.0.0` está em preparação; a publicação e a criação da release ainda precisam ser concluídas.
+A versão `1.0.0` está concluída e publicada no GitHub Pages. A aplicação recebeu melhorias de acessibilidade, otimização de imagens e build de produção com esbuild. Os testes manuais da distribuição e do endereço público passaram no Brave 1.93.134, conforme registro em `TESTES.md`. O histórico do repositório documenta as alterações por meio de issues, milestone, branches e pull requests.
 
-**Aplicação publicada:** endereço a adicionar após configurar e validar o GitHub Pages.
+**Aplicação publicada:** https://gabrieldittrich.github.io/instituto-conexao-solidaria/
 
 ## Tecnologias
 
@@ -149,7 +149,7 @@ Fluxo adotado:
 
 O commit inicial registra a base acadêmica. As novas alterações são integradas por pull requests, com descrição e resultados de testes. Issues acompanham tarefas, e o milestone **Versão 1.0.0** reúne as pendências da primeira entrega estável.
 
-As mensagens seguem Conventional Commits: `feat`, `fix`, `docs`, `refactor`, `perf` e `chore`. As tags de lançamento seguem `MAJOR.MINOR.PATCH`: alterações incompatíveis, funcionalidades compatíveis e correções, respectivamente. A primeira versão estável prevista é `v1.0.0`.
+As mensagens seguem Conventional Commits: `feat`, `fix`, `docs`, `refactor`, `perf` e `chore`. As tags de lançamento seguem `MAJOR.MINOR.PATCH`: alterações incompatíveis, funcionalidades compatíveis e correções, respectivamente. A primeira versão estável publicada é `v1.0.0`.
 
 ## Manutenção
 
@@ -180,7 +180,7 @@ A pasta `dist/` está versionada nesta etapa para facilitar a entrega e deve ser
 
 Estrutura acrescentada: `package.json`, `package-lock.json`, `scripts/build.mjs`, `.gitignore`, `OTIMIZACAO.md` e `dist/`.
 
-Consulte `OTIMIZACAO.md` para as medições e verificações desta etapa. A publicação está prevista no GitHub Pages e deverá ser validada no endereço público antes da conclusão da release. O workflow `.github/workflows/pages.yml` executa `npm ci` e `npm run build` nos PRs para `main` e `develop`. Publica `dist/` apenas em atualizações da `main` ou execução manual na `main`. Configure **Settings → Pages → Source → GitHub Actions** antes de integrar a release.
+Consulte `OTIMIZACAO.md` para as medições e verificações desta etapa. A aplicação está publicada no GitHub Pages e foi validada no endereço público. O workflow `.github/workflows/pages.yml` executa `npm ci` e `npm run build` nos PRs para `main` e `develop`, e publica `dist/` nas atualizações da `main` ou em execuções manuais nessa branch. O GitHub Pages utiliza o GitHub Actions como fonte de publicação.
 
 ## Aplicação publicada
 
