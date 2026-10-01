@@ -1,0 +1,4 @@
+node_modules/
+*.log
+.DS_Store
+# dist é versionado nesta etapa para permitir publicação estática.

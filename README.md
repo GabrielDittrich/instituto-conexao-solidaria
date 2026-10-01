@@ -6,7 +6,7 @@ O objetivo é aplicar HTML semântico, CSS responsivo e JavaScript para aproxima
 
 ## Estado do projeto
 
-A base funcional está implementada e recebeu melhorias de acessibilidade. O repositório utiliza branches e pull requests para organizar as alterações da Experiência Prática IV. A otimização, os testes finais e a publicação estão em andamento; a release `v1.0.0` ainda não foi concluída.
+A base funcional está implementada e recebeu melhorias de acessibilidade. O repositório utiliza branches e pull requests para organizar as alterações da Experiência Prática IV. A otimização de imagens e o build de produção estão implementados. Os testes finais e a publicação estão em andamento; a release `v1.0.0` ainda não foi concluída.
 
 **Aplicação publicada:** endereço a adicionar após configurar e validar o GitHub Pages.
 
@@ -32,7 +32,7 @@ A base funcional está implementada e recebeu melhorias de acessibilidade. O rep
 
 ### Requisitos
 
-Um navegador atualizado com JavaScript e módulos ES6. Para servir os arquivos, use VS Code com Live Server ou Python 3. Git é necessário apenas para clonar e versionar o projeto. Não é necessário instalar dependências com npm nesta etapa.
+Um navegador atualizado com JavaScript e módulos ES6. Para servir os arquivos, use VS Code com Live Server ou Python 3. Git é necessário apenas para clonar e versionar o projeto. Para desenvolvimento com Live Server, não é necessário npm. Para gerar a versão de produção, instale Node.js 18 ou superior e execute `npm ci` e `npm run build`.
 
 ### Obter os arquivos
 
@@ -76,7 +76,9 @@ projeto-ong/
 │   └── estilos.css
 ├── imagens/
 │   ├── voluntarios.jpg
-│   └── voluntarios.png
+│   ├── voluntarios-480.jpg
+│   ├── voluntarios-800.jpg
+│   └── favicon.svg
 ├── js/
 │   ├── app.js
 │   ├── modules/
@@ -163,7 +165,22 @@ Ao atualizar o IMask, mantenha a licença e teste máscaras, envio, limpeza e tr
 
 ## Produção e publicação
 
-Otimização de recursos e processo de build serão documentados após sua implementação. Atualmente, os arquivos podem ser servidos diretamente como site estático. A publicação está prevista no GitHub Pages e deverá ser validada no endereço público antes da conclusão da release.
+O código-fonte da raiz continua disponível para desenvolvimento com Live Server. Para gerar a distribuição otimizada:
+
+```bash
+npm ci
+npm run build
+```
+
+O build usa esbuild com versão fixada no lockfile, agrupa os módulos JavaScript, minifica JS e CSS e copia imagens, IMask e licenças para `dist/`. O HTML gerado referencia os arquivos minificados. Os caminhos relativos permitem hospedagem em uma subpasta, como no GitHub Pages.
+
+Para testar a distribuição, abra `dist/index.html` com Live Server ou execute `python -m http.server 8000 --directory dist` e acesse `http://localhost:8000`. Não abra por `file://`.
+
+A pasta `dist/` está versionada nesta etapa para facilitar a entrega e deve ser regenerada após alterações no código-fonte. `node_modules/` é ignorado pelo Git. Não edite os arquivos minificados diretamente.
+
+Estrutura acrescentada: `package.json`, `package-lock.json`, `scripts/build.mjs`, `.gitignore`, `OTIMIZACAO.md` e `dist/`.
+
+Consulte `OTIMIZACAO.md` para as medições e verificações desta etapa. A publicação está prevista no GitHub Pages e deverá ser validada no endereço público antes da conclusão da release. O processo de deploy de `dist/` será configurado na etapa de publicação.
 
 ## Autoria e licenças
 
