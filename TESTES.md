@@ -51,3 +51,20 @@ A auditoria completa WCAG AA, otimização e publicação pertencem à próxima 
 | Console e Network sem erros de JavaScript ou arquivos com erro 404 | Aprovado |
 
 Todos os testes acima passaram conforme a execução manual do responsável. Não foram realizados testes em celular físico, com leitor de tela ou uma auditoria completa de conformidade WCAG 2.1 AA.
+
+## Validação após publicação — 01/10/2026
+
+**Responsável:** Gabriel Dittrich Cardoso João  
+**Navegador:** Brave 1.93.134  
+**Endereço:** https://gabrieldittrich.github.io/instituto-conexao-solidaria/
+
+Foram verificados no site publicado:
+
+- Navegação entre Início, Projetos e Participe.
+- Máscaras de CPF, telefone e CEP.
+- Cadastro com dados fictícios e abertura do modal.
+- Persistência do histórico após atualizar a página.
+- Limpeza do histórico.
+- Console e Network, sem erros de JavaScript ou arquivos com status 404.
+
+Todos os testes acima passaram conforme a execução manual do responsável.
