@@ -182,7 +182,9 @@ Estrutura acrescentada: `package.json`, `package-lock.json`, `scripts/build.mjs`
 
 Consulte `OTIMIZACAO.md` para as medições e verificações desta etapa. A publicação está prevista no GitHub Pages e deverá ser validada no endereço público antes da conclusão da release. O workflow `.github/workflows/pages.yml` executa `npm ci` e `npm run build` nos PRs para `main` e `develop`. Publica `dist/` apenas em atualizações da `main` ou execução manual na `main`. Configure **Settings → Pages → Source → GitHub Actions** antes de integrar a release.
 
-Endereço previsto: https://gabrieldittrich.github.io/instituto-conexao-solidaria/ (publicação ainda não confirmada).
+## Aplicação publicada
+
+https://gabrieldittrich.github.io/instituto-conexao-solidaria/
 
 O arquivo vazio `dist/.nojekyll` é gerado automaticamente para indicar distribuição estática sem Jekyll; o workflow já publica o artefato estático diretamente.
 
