@@ -25,7 +25,7 @@ export function inicioTemplate() {
       <div class="grid-container">
         <div class="col-6">
           <figure>
-            <img src="imagens/voluntarios.jpg" alt="Voluntários organizando alimentos em caixas para doação às famílias" width="1200" height="675">
+            <img src="imagens/voluntarios.jpg" srcset="imagens/voluntarios-480.jpg 480w, imagens/voluntarios-800.jpg 800w, imagens/voluntarios.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" decoding="async" alt="Voluntários organizando alimentos em caixas para doação às famílias" width="1200" height="675">
             <figcaption>
               Voluntários durante uma ação de arrecadação de alimentos.
             </figcaption>
