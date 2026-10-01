@@ -804,3 +804,26 @@ aside.alertas {
 aside.alertas .alerta {
   height: auto;
 }
+/* Revisão de acessibilidade — controles, foco e leitura com zoom. */
+.campo input, .campo select { border-color: #768780; }
+.campo input::placeholder { color: #5f6b70; opacity: 1; }
+:focus-visible, .botao:focus-visible,
+.campo input:focus-visible, .campo select:focus-visible {
+  outline: 3px solid #145044;
+  outline-offset: 3px;
+}
+.cabecalho :focus-visible, .hero :focus-visible {
+  outline: 3px solid #ffd66b;
+  outline-offset: 3px;
+}
+.menu-navegacao a:focus-visible { outline: 3px solid #ffd66b; }
+.fechar-modal { min-width: 44px; min-height: 44px; }
+.modal-conteudo { max-height: calc(100dvh - 2rem); overflow-y: auto; }
+html { scroll-padding-top: 6rem; }
+.formulario input, .formulario select { scroll-margin-top: 6rem; }
+#erro-participacao, #erro-consentimento { margin: .5rem 0; }
+#erro-participacao:empty, #erro-consentimento:empty { display: none; }
+@media (forced-colors: active) {
+  :focus-visible { outline: 3px solid Highlight !important; }
+  .botao, .campo input, .campo select { border: 2px solid ButtonText; }
+}

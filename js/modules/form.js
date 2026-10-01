@@ -19,13 +19,23 @@ function hoje() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 function mensagem(campo) {
+  if (campo.id === "consentimento" && campo.validity.valueMissing) return "Confirme o consentimento para salvar o cadastro.";
   if (campo.validity.valueMissing) return "Preencha este campo obrigatório.";
   if (campo.validity.typeMismatch) return "Informe um e-mail válido.";
   if (campo.validity.patternMismatch)
     return "Confira o formato indicado no campo.";
+  if (campo.id === "consentimento" && !campo.checked) return "Confirme o consentimento para salvar o cadastro.";
+  if (campo.validity.rangeOverflow) return "A data de nascimento não pode estar no futuro.";
   return campo.validationMessage;
 }
 function exibirErro(campo) {
+  if (campo.name === "participacao") {
+    const radios = [...campo.form.querySelectorAll('[name="participacao"]')];
+    const valido = radios.some(r => r.checked);
+    radios.forEach(r => r.setAttribute("aria-invalid", String(!valido)));
+    document.getElementById("erro-participacao").textContent = valido ? "" : "Escolha uma forma de participação.";
+    return valido;
+  }
   const valido = validar(campo);
   campo.setAttribute("aria-invalid", String(!valido));
   let erro = document.getElementById(`erro-${campo.id}`);
@@ -34,7 +44,9 @@ function exibirErro(campo) {
     erro.id = `erro-${campo.id}`;
     erro.className = "campo-erro";
     campo.insertAdjacentElement("afterend", erro);
-    campo.setAttribute("aria-describedby", erro.id);
+    const descricoes = new Set((campo.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean));
+    descricoes.add(erro.id);
+    campo.setAttribute("aria-describedby", [...descricoes].join(" "));
   }
   if (erro) erro.textContent = valido ? "" : mensagem(campo);
   return valido;

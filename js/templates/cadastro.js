@@ -19,7 +19,7 @@ export function cadastroTemplate() {
           Cadastro de apoiadores
         </h2>
         <p>
-          Os campos marcados como obrigatórios devem ser preenchidos antes do envio.
+          Todos os campos são obrigatórios. Escolha uma forma de participação e confirme o consentimento antes de enviar.
         </p>
       </div>
       <div class="grid-container">
@@ -39,8 +39,8 @@ export function cadastroTemplate() {
                 <label for="cpf">
                   CPF
                 </label>
-                <input type="text" id="cpf" name="cpf" pattern="[0-9]{3}\\.[0-9]{3}\\.[0-9]{3}-[0-9]{2}" placeholder="000.000.000-00" maxlength="14" inputmode="numeric" title="Digite o CPF no formato 000.000.000-00" required>
-                <span class="campo-ajuda">
+                <input type="text" id="cpf" name="cpf" aria-describedby="ajuda-cpf" pattern="[0-9]{3}\\.[0-9]{3}\\.[0-9]{3}-[0-9]{2}" placeholder="000.000.000-00" maxlength="14" inputmode="numeric" title="Digite o CPF no formato 000.000.000-00" required>
+                <span class="campo-ajuda" id="ajuda-cpf">
                   Formato: 000.000.000-00
                 </span>
               </p>
@@ -115,31 +115,33 @@ export function cadastroTemplate() {
               </p>
             </div>
           </fieldset>
-          <fieldset>
+          <fieldset id="grupo-participacao" aria-describedby="erro-participacao">
             <legend>
               Forma de participação
             </legend>
             <div class="opcoes">
               <label class="opcao">
-                <input type="radio" name="participacao" value="doador" required>
+                <input type="radio" name="participacao" aria-describedby="erro-participacao" value="doador" required>
                 Doador
               </label>
               <label class="opcao">
-                <input type="radio" name="participacao" value="voluntario">
+                <input type="radio" name="participacao" aria-describedby="erro-participacao" value="voluntario">
                 Voluntário
               </label>
               <label class="opcao">
-                <input type="radio" name="participacao" value="ambos">
+                <input type="radio" name="participacao" aria-describedby="erro-participacao" value="ambos">
                 Doador e voluntário
               </label>
             </div>
+            <p class="campo-erro" id="erro-participacao"></p>
           </fieldset>
           <p class="consentimento">
-            <input type="checkbox" id="consentimento" name="consentimento" required>
+            <input type="checkbox" id="consentimento" name="consentimento" aria-describedby="erro-consentimento" required>
             <label for="consentimento">
               Concordo em salvar este cadastro de demonstração neste navegador.
             </label>
           </p>
+          <p class="campo-erro" id="erro-consentimento"></p>
           <div id="feedback-formulario" role="alert">
           </div>
           <div class="acoes-formulario">
