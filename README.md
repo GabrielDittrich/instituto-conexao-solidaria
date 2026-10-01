@@ -1,32 +1,172 @@
 # Instituto Conexão Solidária
 
-Projeto acadêmico de Desenvolvimento Front-end. Interface responsiva em HTML, CSS e JavaScript, com SPA por hash e módulos ES6.
+Plataforma web acadêmica desenvolvida na disciplina de Desenvolvimento Front-end do curso de Engenharia de Software. O projeto representa uma ONG fictícia e apresenta iniciativas sociais e um cadastro de apoiadores.
 
-## Executar
+O objetivo é aplicar HTML semântico, CSS responsivo e JavaScript para aproximar voluntários, doadores e comunidades, além de praticar versionamento, acessibilidade, documentação e preparação para produção.
 
-Abra a pasta no VS Code e execute `index.html` com a extensão Live Server. Alternativamente, com Python instalado, execute `python -m http.server 8000` nesta pasta e visite http://localhost:8000. Os módulos exigem um servidor HTTP; não abra o HTML diretamente com duplo clique.
+## Estado do projeto
 
-## Estrutura
+A base funcional está implementada e recebeu melhorias de acessibilidade. O repositório utiliza branches e pull requests para organizar as alterações da Experiência Prática IV. A otimização, os testes finais e a publicação estão em andamento; a release `v1.0.0` ainda não foi concluída.
 
-- `index.html`: documento principal, menu, modal e toast.
-- `css/estilos.css`: estilos e responsividade.
-- `js/app.js`: inicialização.
-- `js/modules/router.js`: rotas `#inicio`, `#projetos` e `#cadastro`, título e fallback.
-- `js/modules/form.js`: validação, máscaras locais e eventos delegados.
-- `js/modules/storage.js`: JSON, histórico e tratamento de falhas.
-- `js/modules/components.js`: menu, modal, foco e notificações.
-- `js/templates/`: conteúdo das três telas; cards gerados por array, map e join.
-- `imagens/`: imagens originais.
-- `cadastro.html` e `projetos.html`: compatibilidade com links antigos.
+**Aplicação publicada:** endereço a adicionar após configurar e validar o GitHub Pages.
 
-## Funcionalidades e limites
+## Tecnologias
 
-A navegação altera apenas o conteúdo principal. O formulário valida obrigatoriedade, formato de CPF, telefone e CEP, e-mail, nome completo e nascimento não futuro. O CPF é verificado pelo formato, sem cálculo dos dígitos verificadores. As máscaras usam IMask 7.6.1, incluído em `js/vendor/imask.min.js`, com licença MIT em `licenses/IMask-LICENSE.txt`. A biblioteca é inicializada a cada renderização do cadastro e suas instâncias são destruídas antes da troca de rota. Se ela não carregar, os campos continuam disponíveis e a validação exige os formatos indicados, digitados manualmente.
+- HTML5: estrutura semântica, formulários e atributos de acessibilidade.
+- CSS3: layout com Grid e Flexbox, media queries e estados visuais.
+- JavaScript: módulos ES6, templates dinâmicos, eventos e manipulação do DOM.
+- IMask 7.6.1: máscaras de CPF, telefone e CEP, incluída localmente.
+- localStorage: persistência do histórico no navegador usando JSON.
+- Git e GitHub: histórico de alterações, issues, milestone e pull requests.
 
-O histórico guarda até 50 registros, somente com nome, participação e data, na chave `conexao-solidaria:cadastros:v1`. Não existe backend ou envio real. Use dados fictícios. Os demais campos não são persistidos. O botão de limpeza remove o histórico. JSON inválido é tratado como histórico vazio; falhas de gravação exibem mensagem e preservam o formulário. Dados recuperados são inseridos com textContent.
+## Funcionalidades
 
-Inclui foco visível, link para pular ao conteúdo, mensagens textuais, modal com foco contido e retorno ao botão, e suporte a movimento reduzido. Isso não equivale a uma auditoria completa de conformidade WCAG AA.
+- Navegação SPA entre Início, Projetos e Participe, sem recarregar o documento principal.
+- Cards de projetos gerados a partir de um array de objetos.
+- Menu responsivo, avisos informativos, modal e notificação de confirmação.
+- Formulário com validação de campos obrigatórios, nome completo, e-mail, formatos e nascimento não futuro.
+- Histórico de cadastros com recuperação após recarregamento e opção de limpeza.
+- Tratamento de rotas inexistentes, JSON inválido e falhas de gravação.
 
-## Próxima etapa
+## Executar localmente
 
-Criar repositório, branches, issues, milestone e PRs. Depois realizar auditoria de acessibilidade, otimização e deploy da Atividade IV. Nenhuma release foi criada ainda.
+### Requisitos
+
+Um navegador atualizado com JavaScript e módulos ES6. Para servir os arquivos, use VS Code com Live Server ou Python 3. Git é necessário apenas para clonar e versionar o projeto. Não é necessário instalar dependências com npm nesta etapa.
+
+### Obter os arquivos
+
+Clone o repositório ou baixe seu ZIP no GitHub e extraia a pasta. Abra a pasta que contém `index.html`.
+
+### Opção 1 — Live Server
+
+1. Abra a pasta no VS Code.
+2. Instale a extensão Live Server, caso necessário.
+3. Clique com o botão direito em `index.html` e selecione **Open with Live Server**.
+
+### Opção 2 — Python 3
+
+No terminal, dentro da pasta do projeto:
+
+```bash
+python3 -m http.server 8000
+```
+
+No Windows, se necessário, use `py -m http.server 8000`.
+
+Acesse http://localhost:8000. Para encerrar o servidor, pressione Ctrl+C no terminal.
+
+Os módulos JavaScript exigem um servidor HTTP. Não abra `index.html` diretamente com duplo clique.
+
+## Utilização
+
+Navegue pelo menu ou pelos botões da página inicial. Em **Participe**, preencha os campos com dados fictícios, escolha a forma de participação e confirme o consentimento. O formulário exibe mensagens quando há informações inválidas. Após salvar, apresenta uma confirmação e atualiza o histórico. O botão **Limpar histórico** remove os registros deste navegador.
+
+## Estrutura de diretórios
+
+```text
+projeto-ong/
+├── index.html
+├── cadastro.html
+├── projetos.html
+├── README.md
+├── TESTES.md
+├── ACESSIBILIDADE.md
+├── css/
+│   └── estilos.css
+├── imagens/
+│   ├── voluntarios.jpg
+│   └── voluntarios.png
+├── js/
+│   ├── app.js
+│   ├── modules/
+│   │   ├── router.js
+│   │   ├── form.js
+│   │   ├── storage.js
+│   │   └── components.js
+│   ├── templates/
+│   │   ├── index.js
+│   │   ├── projetos.js
+│   │   └── cadastro.js
+│   └── vendor/
+│       └── imask.min.js
+└── licenses/
+    └── IMask-LICENSE.txt
+```
+
+A pasta local pode ter o nome do repositório; a organização interna é a mesma. Caso exista uma licença geral na raiz, ela é mantida no arquivo `LICENSE`.
+
+## Arquitetura e navegação
+
+`index.html` contém a estrutura compartilhada: cabeçalho, área principal, rodapé, modal e toast. `app.js` inicializa os módulos.
+
+`router.js` associa as hashes `#inicio`, `#projetos` e `#cadastro` aos templates. Ao mudar de rota, atualiza o conteúdo principal, o título, o item ativo do menu e o foco. Hashes desconhecidas retornam ao início. `cadastro.html` e `projetos.html` redirecionam links antigos para a SPA.
+
+Os templates retornam HTML. Os cards usam `map()` e `join()`. O formulário e os componentes utilizam delegação de eventos para continuar funcionando após a substituição dos elementos da página.
+
+`form.js` separa validação e máscaras. As instâncias do IMask são destruídas antes da troca de rota e recriadas ao renderizar o cadastro. Se a biblioteca não carregar, os campos permanecem disponíveis, mas os formatos precisam ser digitados manualmente.
+
+## Persistência e limites
+
+`storage.js` salva até 50 registros na chave `conexao-solidaria:cadastros:v1`. Cada registro contém somente nome, participação e data. CPF, nascimento, endereço e contatos não são persistidos.
+
+Os dados ficam vinculados à origem e ao navegador utilizados; não são compartilhados entre dispositivos. A limpeza dos dados do site também remove o histórico. Dados recuperados são inseridos com `textContent`.
+
+**Não existe backend, envio à ONG ou processamento de pagamentos.** Use dados fictícios. O CPF é validado pelo formato, sem cálculo dos dígitos verificadores. Dados de contato e ações sociais representam uma demonstração acadêmica.
+
+## Acessibilidade
+
+Recursos implementados:
+
+- Idioma `pt-BR`, landmarks semânticos, títulos e textos alternativos.
+- Link para pular ao conteúdo e indicadores de foco.
+- Rótulos de formulário, instruções de obrigatoriedade e erros textuais associados aos campos e ao grupo de participação.
+- Controle de estado e nome acessível do menu móvel, com retorno do foco ao fechar por Escape.
+- Modal com nome e descrição acessíveis, contenção e retorno do foco.
+- Links dos cards identificando o projeto.
+- Suporte a movimento reduzido e ajustes de contraste.
+
+`ACESSIBILIDADE.md` registra as mudanças, cálculos de contraste e testes manuais pendentes. A existência desses recursos não constitui certificação de conformidade integral com WCAG 2.1 AA.
+
+## Testes
+
+Consulte `TESTES.md` e `ACESSIBILIDADE.md`. Registre resultados reais, informando navegador e, quando utilizado, leitor de tela.
+
+Antes de integrar alterações, confira navegação, formulários válidos e inválidos, máscaras após troca de rota, persistência, limpeza do histórico, modal, teclado, zoom, telas pequenas e Console. Não marque testes como concluídos sem executá-los.
+
+## Versionamento e colaboração
+
+Fluxo adotado:
+
+- `main`: referência para versões estáveis e publicação.
+- `develop`: integração das alterações do próximo lançamento.
+- `feature/*`: funcionalidades e melhorias, criadas a partir de `develop`.
+- `docs/readme`: atualização de documentação a partir de `develop`.
+- `release/*`: preparação de uma versão a partir de `develop`, integrada em `main` e de volta em `develop`.
+- `hotfix/*`: correções urgentes de produção a partir de `main`, integradas também em `develop`.
+
+O commit inicial registra a base acadêmica. As novas alterações são integradas por pull requests, com descrição e resultados de testes. Issues acompanham tarefas, e o milestone **Versão 1.0.0** reúne as pendências da primeira entrega estável.
+
+As mensagens seguem Conventional Commits: `feat`, `fix`, `docs`, `refactor`, `perf` e `chore`. As tags de lançamento seguem `MAJOR.MINOR.PATCH`: alterações incompatíveis, funcionalidades compatíveis e correções, respectivamente. A primeira versão estável prevista é `v1.0.0`.
+
+## Manutenção
+
+- Conteúdo das telas: editar `js/templates/`.
+- Projetos: atualizar o array em `js/templates/projetos.js`.
+- Layout e responsividade: editar `css/estilos.css`.
+- Rotas: ajustar `router.js` e os links do menu.
+- Validação e máscaras: editar `form.js`.
+- Histórico: editar `storage.js`, preservando compatibilidade com registros existentes.
+- Menu e modal: editar `components.js`.
+
+Ao atualizar o IMask, mantenha a licença e teste máscaras, envio, limpeza e troca de rota. Após qualquer alteração, repita os testes afetados e atualize a documentação correspondente.
+
+## Produção e publicação
+
+Otimização de recursos e processo de build serão documentados após sua implementação. Atualmente, os arquivos podem ser servidos diretamente como site estático. A publicação está prevista no GitHub Pages e deverá ser validada no endereço público antes da conclusão da release.
+
+## Autoria e licenças
+
+**Gabriel Dittrich Cardoso João** — projeto acadêmico de Engenharia de Software, Universidade Positivo.
+
+A licença geral do projeto, quando adicionada, está em `LICENSE`. A biblioteca IMask possui licença MIT, preservada em `licenses/IMask-LICENSE.txt`. Essa licença se refere à biblioteca; a distribuição das imagens deve respeitar suas respectivas permissões de uso.
